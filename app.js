@@ -39,10 +39,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-
-// "scripts": {
-//   "server": "node ./bin/www",
-//   "client": "npm run start --prefix client",
-//   "start": "nodemon app"
-// },
