@@ -43,13 +43,14 @@
 - example: $git commit -m"[Backend]/[Create Main Page]/[Fix bug return api]"
 
 # Hướng dẫn chạy chương trình:
-*b1: clone về: $git clone https://github.com/group08s/cnpm-19hc-group08.git
-*b2: cd CNPM_19CH_GROUP8
-*b3: npm install
-*b4: cd frontEnd
-*b5: npm install (lâu)
-*b6: tại ./CNPM_19CH_GROUP8 : $npm start
-    *note: server: localhost:3000
-           client: localhost:4200
-*note: để chạy riêng client: tại ./CNPM_19CH_GROUP8 : $npm run client
-*note: để chạy riêng server: tại ./CNPM_19CH_GROUP8 : $npm run server
+- b1: clone về: $git clone https://github.com/group08s/cnpm-19hc-group08.git
+- b2: cd CNPM_19CH_GROUP8
+- b3: npm install
+- b4: cd frontEnd
+- b5: npm install (lâu)
+- b6: tại ./CNPM_19CH_GROUP8 : $npm start
+   - note: 
+      - server: localhost:3000
+      - client: localhost:4200
+- note: để chạy riêng client: tại ./CNPM_19CH_GROUP8 : $npm run client
+- note: để chạy riêng server: tại ./CNPM_19CH_GROUP8 : $npm run server
