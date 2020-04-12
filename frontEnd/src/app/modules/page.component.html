@@ -1,0 +1,12 @@
+<ng-container >
+  <app-header></app-header>
+  <div class="wrap-content">
+    <ng-container [ngTemplateOutlet]="projection"></ng-container>
+  </div>
+  <app-footer></app-footer>
+</ng-container>
+
+
+<ng-template #projection>
+  <ng-content></ng-content>
+</ng-template>
