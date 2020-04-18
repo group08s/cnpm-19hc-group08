@@ -1,0 +1,22 @@
+[
+    {"Dish" : "Phở Gà","Price" : 100000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Phở Bò","Price" : 200000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Phở Heo","Price" : 120000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Lẩu Hải Sản","Price" : 300000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Gà Hầm Thuốc Bắc","Price" : 200000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Heo Quay Gác Bếp","Price" : 300000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Bò Nướng","Price" : 400000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Gà Nướng","Price" : 200000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Gỏi Quấn Bò","Price" : 400000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Bò Lúc Lắc","Price" : 500000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Bò Bít Tết","Price" : 400000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Bò Kho","Price" : 500000 ,"Note" : "","Category_d":1},
+    {"Dish" : "Nước Khoáng","Price" : 50000 ,"Note" : "","Category_d":2},
+    {"Dish" : "Coca","Price" : 50000 ,"Note" : "","Category_d":2},
+    {"Dish" : "Pepsi","Price" : 50000 ,"Note" : "","Category_d":2},
+    {"Dish" : "Bia heineken","Price" : 100000 ,"Note" : "","Category_d":2},
+    {"Dish" : "Bia budweiser","Price" : 100000 ,"Note" : "","Category_d":2},
+    {"Dish" : "Trái cây ướp lạnh","Price" : 100000 ,"Note" : "","Category_d":2}
+    
+    
+]

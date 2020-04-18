@@ -1,0 +1,7 @@
+[
+    {"CateRoom":"Standard","People":4,"PriceDay":1000000,"PriceNight":800000},
+    {"CateRoom":"Superior","People":2,"PriceDay":1800000,"PriceNight":1500000},
+    {"CateRoom":"Deluxe","People":2,"PriceDay":2200000,"PriceNight":2000000},
+    {"CateRoom":"Suite","People":3,"PriceDay":2500000,"PriceNight":2200000},
+    {"CateRoom":"Connecting","People":6,"PriceDay":4000000,"PriceNight":3200000}
+]

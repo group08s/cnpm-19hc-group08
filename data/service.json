@@ -1,0 +1,13 @@
+[
+    {"ServiceName":"Wifi 4G","Price":"200000","Note":""},
+    {"ServiceName":"Quầy Bar","Price":"500000","Note":""},
+    {"ServiceName":"Cafe","Price":"100000","Note":""},
+    {"ServiceName":"Dịch vụ Spa","Price":"200000","Note":""},
+    {"ServiceName":"Giặt ủi , bàn là","Price":"100000","Note":""},
+    {"ServiceName":"Sân golf","Price":"1000000","Note":""},
+    {"ServiceName":"Sân tennis","Price":"1000000","Note":""},
+    {"ServiceName":"Sòng Bạc","Price":"1000000","Note":""},
+    {"ServiceName":"Sân tennis","Price":"1000000","Note":""},
+    {"ServiceName":"Chăm sóc thú cưng","Price":"1000000","Note":""},
+    {"ServiceName":"Fitness centre","Price":"500000","Note":""}
+]

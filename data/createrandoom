@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<p id="demo"></p>
+
+<script>
+
+function randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
+function getFormattedDate(date) {
+    let year = date.getFullYear();
+    let month = (1 + date.getMonth()).toString().padStart(2, '0');
+    let day = date.getDate().toString().padStart(2, '0');
+  
+    return year + '-' + month + '-' + day;
+}
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+  var nguoinhan = [
+  "Công ty TTHH Nguyên Khang",
+  "Nhà phân phối Bách Hoá Xanh",
+  "Công ty Hoàng Hà",
+  "Nhà phân phối Ẩm Thực Xanh",
+  "Công ty TTHH Công Thiên Ân",
+  "Nhà cung cấp Ngân Hà",
+  "Chợ Thiên Huyền",
+  "Nhà Ăn Lan Hà"
+  ]; 
+  
+  var note = [
+  	"Thực phẩm hoa quả tươi : Cà chua , rau cải xanh , mướp đắng , ...",
+    "Bia bia budweiser , bia heineken",
+    "Thực thẩm đông lạnh : Thịt heo , thịt bò , thịt gà ",
+    "Thực phẩm tươi sống : Tôm hùm , cua hoàng đế , hào sống , tôm sú",
+    "Gia vị : muối , đường , sa tế",
+    "Đồ trang trí nội thất",
+    "Bảo trì đồ khách sạn"
+  ]
+  
+  var tien = ["5000000","8000000","10000000","12000000","15000000","2000000"];
+  
+  
+  
+  
+  var text = "";
+  var i;
+  for( i = 0 ; i < 50 ; i++){
+  	var r_receiver = getRndInteger(0,8);
+    var r_amount = getRndInteger(0,6);
+    var r_stus = getRndInteger(1,4);
+    var r_note = getRndInteger(0,6);
+    var r_date = randomDate(new Date(2019, 1, 1), new Date());
+    var format_date = getFormattedDate(r_date);
+    text += '{"Receiver":' +'"' + nguoinhan[r_receiver] + '",' +'"Amount":' +  tien[r_amount] +  ',' + '"Status":' + r_stus + ',' + '"Note":' + '"'+ note[r_note] + '",' + '"Date_taken":"' + format_date + '"},';
+  }
+  
+  
+  document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
