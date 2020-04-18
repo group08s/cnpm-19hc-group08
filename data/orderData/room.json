@@ -1,0 +1,11 @@
+[
+    {
+        "MAPH" : "PH01",
+        "PeopleNumber": 4,
+        "PriceDay": 1000000,
+        "PriceNight": 800000,
+        "Status": 1,
+        "Floor": 1,
+        "Type": 1
+    }
+]

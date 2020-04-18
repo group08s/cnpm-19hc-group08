@@ -1,0 +1,28 @@
+[
+    {
+        "DateService": "153939",
+        "ListUseService": [
+            {
+                "IDKH": "KHO1",
+                "BookRoom": {
+                    "MAPH": "PH01",
+                    "BookTime": "159939393",
+                    "ArrivalTime": "1593939",
+                    "LeaveTime": "15392929"
+                },
+                "Restaurant": [
+                    {
+                        "MADH": "DH01"
+                    }
+                ],
+                "Orther": [
+                    {
+                        "MADV": "DV01",
+                        "TimeStart": "15393993",
+                        "Type": 0
+                    }
+                ]
+            }
+        ]
+    }
+]
