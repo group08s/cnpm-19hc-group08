@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Spend = new Schema({
-    Spend_ID : {type : String , required : true , trim : true},
+    IdSpend : {type : String , required : true , trim : true},
     Receiver : {type : String , required : true , trim : true},
     // receiver là người nhận / hưởng tiền
     Amount : {type : Number , required : true , trim : true},

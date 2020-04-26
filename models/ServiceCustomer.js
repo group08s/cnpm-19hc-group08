@@ -4,19 +4,17 @@ const Schema = mongoose.Schema;
 
 const ServiceCustomer = new Schema({
     IDKH: {type: String, required: true, trim: true},
-    Room :[
+    BookRoom: [
         {
-            MaRoom : {type:String , require : true , trim : true}
+            IdRoom: {type: String, required: true, trim: true},
+            BookTime: {type: Number},
+            ArrivalTime: {type: Number, required: true},
+            LeaveTime: {type: Number, required: true}
         }
     ],
-    BookRoom: {
-        BookTime: {type: Number},
-        ArrivalTime: {type: Number, required: true},
-        LeaveTime: {type: Number, required: true}
-    },
     Restaurant: [
         {
-            MADH: {type: String, required: true, trim: true}
+            IdDish: {type: String, required: true, trim: true}
         }
     ],
     Orther: [

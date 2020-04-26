@@ -7,13 +7,13 @@ const StaffJob = new Schema({
     Spend : [
         {
             MaSpend : {type: String , required : true , trim : true},
-            Time_taken : {type : Number , require:true}
+            TimeTaken : {type : Number , require:true}
         }
     ],
     Payment : [
         {
             MaPayment : {type : String , required : true,trim : true},
-            Time_taken : {type : Number , required : true}
+            TimeTaken : {type : Number , required : true}
         }
     ]
     

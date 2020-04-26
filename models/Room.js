@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Room = new Schema({
-    RoomId : {type : String , required : true , trim : true},
+    IdRoom : {type : String , required : true , trim : true},
     RoomName : {type : String , required : true , trim : true},
     People : {type : Number , required : true},
     Price : { type : Number,required :true},

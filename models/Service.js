@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const Service = new Schema({
-    MADV: {type: String, required: true, trim: true},
+    IdService: {type: String, required: true, trim: true},
     Name: {type: String, required: true, trim: true},
     Price: {type: Number, required: true},
     Note: {type:String, trim: true}

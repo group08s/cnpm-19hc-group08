@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Restaurant = new Schema({
-    Dish_id : {type : String , required : true , trim : true}, 
+    IdDish : {type : String , required : true , trim : true}, 
     Dish : {type : String ,required : true , trim : true},
     Price : {type : Number , required :true},
     Note : {type : String , trim : true},

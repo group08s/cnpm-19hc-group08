@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const Staff = new Schema({
-    Staff_Id :{type : String , required : true , trim : true },
-    Staff_Name : {type : String , required : true, trim : true},
+    IdStaff :{type : String , required : true , trim : true },
+    NameStaff : {type : String , required : true, trim : true},
     Gender : { type : String , required : true , trim : true},
-    Date_Birth : {type : Number , required : true , trim : true},
+    DateOfBirth : {type : Number , required : true , trim : true},
     Phone : { type : String , required : true , trim : true},
-    Join_date : {type : Number , required : true},
+    JoinDate : {type : Number , required : true},
     // loai nhan vien
     Decentralization : {type : Number, required : true},
 
