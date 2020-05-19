@@ -8,8 +8,16 @@ var logger = require('morgan');
 // var usersRouter = require('./routes/users');
 
 var app = express();
+
 //router and modal
 const indexRouter = require('./routes/index');
+const staffRouter = require('./routes/staff.route');
+const restaurantRouter = require('./routes/restaurant.route');
+const roomRouter = require('./routes/room.route');
+const serviceRouter = require('./routes/service.route');
+const spendRouter = require('./routes/spend.route');
+const staffjobRouter = require('./routes/staffjob.route');
+
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
@@ -58,18 +66,20 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
-
 //router into database
 app.use('/', indexRouter);
 
+app.use('/spend',spendRouter);
 
+app.use('/staff',staffRouter);
 
-// app.use('/users', usersRouter);
+app.use('/restaurant',restaurantRouter);
 
+app.use('/room',roomRouter);
 
+app.use('/service',serviceRouter);
 
+app.use('/staffjob',staffjobRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
