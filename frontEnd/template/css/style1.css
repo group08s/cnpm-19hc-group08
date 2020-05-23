@@ -2,6 +2,10 @@
   margin-top: 100px;
 }
 
+body {
+  overflow: hidden;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -60,7 +64,7 @@ h1 p {
 
 .minicart .mini-cart-bottom .prod {
   position: relative;
-  height: calc(100vh - 162px);
+  height: calc(74vh - 162px);
   max-height: 100%;
   overflow: auto;
   padding: 0 20px;
@@ -144,7 +148,6 @@ h1 p {
   padding: 0 40px;
   overflow: hidden;
   bottom: 60px;
-  position: absolute;
   width: 100%;
   max-width: 100%;
 }
