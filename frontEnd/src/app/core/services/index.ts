@@ -1,6 +1,6 @@
 import { HomeService } from './home/home.service';
 
-export const service = [
+export const services = [
     HomeService
 ];
 

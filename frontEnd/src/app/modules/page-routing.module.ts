@@ -6,7 +6,7 @@ import {
 } from './page';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'error', component: ErrorComponent },
 
 ];
