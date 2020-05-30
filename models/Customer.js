@@ -8,7 +8,10 @@ const Customer = new Schema({
     Address : {type : String , required : true , trim : true},
     IdentityCard : {type : String , required : true , trim : true},
     Email : {type : String , trim : true},
-
+    Status : {type : Number }
+    
+    // 1 la khach dang o
+    // 0 la khach da o xong
 },{collection : "Customer"});
 const ModelCustomer = mongoose.model("Customer",Customer);
 module.exports = ModelCustomer;

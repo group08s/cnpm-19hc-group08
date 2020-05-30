@@ -7,7 +7,8 @@ module.exports.addCustomer = function(req,res){
         Phone : req.body.txt_phone,
         Address : req.body.txt_address,
         IdentityCard : req.body.txt_identitycard,
-        Email : req.body.txt_email
+        Email : req.body.txt_email,
+        Status : req.body.number
     });
 
     newcustomer.save(function(err){

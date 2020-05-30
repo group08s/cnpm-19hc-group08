@@ -24,7 +24,7 @@ module.exports.addSpend = function(req,res){
                 {IDStaff : req.body.txt_idstaff},
                 {
                     $push : {
-                        spend2  : newspend._id
+                        Spend : staffjob_spend
                     }
                 },
                 function(err){

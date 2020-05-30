@@ -23,16 +23,15 @@ const Schema = mongoose.Schema;
 
 const StaffJob = new Schema({
     IDStaff : {type : String , required : true, trim : true},
-    spend2 : [{type : mongoose.Types.ObjectId , ref : "Spend"}],
     Spend : [
         {
-            MaSpend : {type : mongoose.Types.ObjectId , ref : 'Spend'},
+            MaSpend : {type : mongoose.Types.ObjectId ,require : true, ref : "Spend"},
             TimeTaken : {type : Number , require:true}
         }
     ],
     Payment : [
         {
-            MaPayment : {type : String , required : true,trim : true},
+            MaPayment : {type : mongoose.Types.ObjectId , required : true,ref : "Payment"},
             TimeTaken : {type : Number , required : true}
         }
     ]

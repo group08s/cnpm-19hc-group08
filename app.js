@@ -9,7 +9,7 @@ var logger = require('morgan');
 
 var app = express();
 
-//router and modal
+//router and model
 const indexRouter = require('./routes/index');
 const staffRouter = require('./routes/staff.route');
 const restaurantRouter = require('./routes/restaurant.route');
@@ -17,7 +17,7 @@ const roomRouter = require('./routes/room.route');
 const serviceRouter = require('./routes/service.route');
 const spendRouter = require('./routes/spend.route');
 const staffjobRouter = require('./routes/staffjob.route');
-
+const paymentRouter = require('./routes/payment.route');
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
@@ -80,6 +80,9 @@ app.use('/room',roomRouter);
 app.use('/service',serviceRouter);
 
 app.use('/staffjob',staffjobRouter);
+
+app.use('/payment',paymentRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
