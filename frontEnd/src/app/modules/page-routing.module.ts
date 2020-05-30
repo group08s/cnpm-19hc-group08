@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    
 } from './page';
+import { RestaurantComponent } from './component/restaurant/restaurant.component';
 
 const routes: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'error', component: ErrorComponent },
-
+  //{ path: 'error', component: ErrorComponent },
+//
 ];
 
 @NgModule({
