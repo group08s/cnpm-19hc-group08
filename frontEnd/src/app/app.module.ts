@@ -7,8 +7,8 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent, ErrorComponent } from './modules/page';
 import { RestaurantComponent } from './modules/component/restaurant/restaurant.component';
 import { MenuHeaderComponent, FooterComponent } from './modules/component';
-import { ReceptionistComponent } from './modules/component/receptionist/receptionist.component';
 import { ManagerComponent } from './modules/component/manager/manager.component';
+import { ReceptionistModule } from './modules/component/receptionist/receptionist.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +17,12 @@ import { ManagerComponent } from './modules/component/manager/manager.component'
     FooterComponent,
     ErrorComponent,
     RestaurantComponent,
-    ReceptionistComponent,
     ManagerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReceptionistModule,
     CoreModule,
   ],
   providers: [],
