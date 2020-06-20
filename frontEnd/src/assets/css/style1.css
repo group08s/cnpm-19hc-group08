@@ -75,6 +75,17 @@ h1 p {
   border-color: #f76b65;
 }
 
+.btn-manager {
+  color: #f76b65;
+  background-color: white;
+  border-color: #f76b65;
+}
+
+.btn-manager:hover {
+  color: white;
+  background-color: #f76b65;
+}
+
 .minicart {
   background-color: #f7f7f7;
 }

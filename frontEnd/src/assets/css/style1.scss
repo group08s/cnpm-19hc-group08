@@ -68,6 +68,17 @@ h1 {
     }
 }
 
+.btn-manager {
+    color:rgb(247, 107, 101);
+    background-color: white;
+    border-color: rgb(247, 107, 101);
+
+    &:hover {
+        color: white;
+        background-color: rgb(247, 107, 101);
+    }
+}
+
 .minicart {
     background-color: #f7f7f7;
     .mini-cart-bottom {
