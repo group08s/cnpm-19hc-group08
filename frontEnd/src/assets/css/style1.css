@@ -38,6 +38,28 @@ h1 p {
   padding-right: 15rem;
 }
 
+.card {
+  text-align: -webkit-center;
+}
+
+.card .card-img {
+  height: 200px;
+  overflow: hidden;
+}
+
+.card .card-img .card-img-top {
+  margin-top: 20px;
+  height: 90%;
+  width: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.card .card-body .card-text,
+.card .card-body .card-title {
+  font-family: "Segoe UI", serif;
+}
+
 .card-index {
   color: #697c94 !important;
 }
@@ -51,11 +73,6 @@ h1 p {
   color: #f76b65;
   background-color: white;
   border-color: #f76b65;
-}
-
-.card-text,
-.card-title {
-  font-family: "Segoe UI", serif;
 }
 
 .minicart {

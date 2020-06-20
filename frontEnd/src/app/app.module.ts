@@ -9,6 +9,7 @@ import { RestaurantComponent } from './modules/component/restaurant/restaurant.c
 import { MenuHeaderComponent, FooterComponent } from './modules/component';
 import { ManagerComponent } from './modules/component/manager/manager.component';
 import { ReceptionistModule } from './modules/component/receptionist/receptionist.module';
+import { LoginComponent } from './modules/component/login-register/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { ReceptionistModule } from './modules/component/receptionist/receptionis
     FooterComponent,
     ErrorComponent,
     RestaurantComponent,
-    ManagerComponent
+    ManagerComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

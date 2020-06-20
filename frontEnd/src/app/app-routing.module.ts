@@ -4,12 +4,16 @@ import { ErrorComponent, HomeComponent } from './modules/page';
 import { RestaurantComponent } from './modules/component/restaurant/restaurant.component';
 import { ReceptionistComponent } from './modules/component/receptionist/receptionist/receptionist.component';
 import { ManagerComponent } from './modules/component/manager/manager.component';
+import { LoginComponent } from './modules/component/login-register/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'restaurant', component: RestaurantComponent },
   { path: 'manager', component: ManagerComponent },
+  { path: 'login', component: LoginComponent },
+
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
  // { path: '404', component: ErrorComponent },
   //{path: '**', redirectTo: '/404'}
 
