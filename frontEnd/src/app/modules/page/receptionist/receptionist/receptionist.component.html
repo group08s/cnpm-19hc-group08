@@ -1,0 +1,27 @@
+<div class="container-fluid mt-20 ">
+  <div class="row">
+    <div class="col-md-2 ">
+      <ul class="navbar-nav mr-auto my-3">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['room-diagram']">Room Diagram</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"  [routerLink]="['book-room']">Book Room</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"  [routerLink]="['/list-customer']">List Of Customers</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link"  [routerLink]="['/checkout']">Checkout</a>
+        </li> 
+      </ul>
+    </div>
+
+    <div class="col-md-10 " style="overflow: overlay; height: 100vh;">
+      <router-outlet></router-outlet>
+ 
+    </div>
+
+
+  </div>
+</div>

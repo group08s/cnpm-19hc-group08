@@ -1,9 +1,12 @@
 import { HomeService } from './home/home.service';
+import { RestaurantService } from './restaurant/restaurant.service';
 
-export const service = [
-    HomeService
+export const services = [
+    HomeService,
+    RestaurantService
 ];
 
 export {
-    HomeService
+    HomeService,
+    RestaurantService
 };
