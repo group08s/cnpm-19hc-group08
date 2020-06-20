@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { RestaurantPageService } from './../../services';
+
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
   styleUrls: ['./restaurant.component.css'],
 })
 export class RestaurantComponent implements OnInit {
+  listAllDisk: any;
+
+
   Customers = [
     { id: 0, name: 'Hotel guests' },
     { id: 1, name: 'Visitor' },
@@ -19,10 +24,21 @@ export class RestaurantComponent implements OnInit {
     { id: 4, name: '202' },
   ];
   selectedRoom = '';
-
-  constructor() { }
-
   selectedCustomer = '';
+
+  constructor(
+    public restaurantPageService: RestaurantPageService
+  ) { }
+
+  ngOnInit() {
+    this.restaurantPageService.getAllDiks().subscribe((res: any) => {
+      if (res) {
+        console.log('showlist: ', this.listAllDisk);
+        this.listAllDisk = res;
+      }
+    });
+   }
+
   selectChangeCus(event: any) {
     // update the ui
     this.selectedCustomer = event.target.value;
@@ -32,6 +48,4 @@ export class RestaurantComponent implements OnInit {
     // update the ui
     this.selectedRoom = event.target.value;
   }
-
-  ngOnInit() { }
 }
