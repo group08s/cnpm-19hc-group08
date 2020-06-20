@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '@environment';
 
 export enum ApiPath {
-  GET_ALL_DISK = '',
+  GET_ALL_DISK = '/restaurant/listdish',
 
 }
 
@@ -16,6 +16,7 @@ export class RestaurantService {
 
   getAll() {
     const url = environment.rootApiUrl + `${ApiPath.GET_ALL_DISK}`;
+    console.log('show url: ', url);
     return this.http.get(url);
   }
 }
