@@ -19,6 +19,17 @@ module.exports.AddRoom = function(req,res){
     });
 }
 
+module.exports.ListRoom  = function(req,res){
+    room.find(function(err,data){
+        if(err){
+            res.json({result : 0});
+        }
+        else{
+            res.json(data);
+        }
+    });
+}
+
 module.exports.findFloor = function(req,res){
     const floor = req.body.Floor;
     room.find({Floor : floor},function(err,data){

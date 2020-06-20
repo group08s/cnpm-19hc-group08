@@ -6,14 +6,14 @@ module.exports.liststaff = function (req, res) {
             res.json({ result: 0, error: err });
         }
         else {
-            console.log(data);
+            //console.log(data);
             res.json(data);
         }
     })
 }
 
 module.exports.findOneStaff = function (req, res) {
-    staffjob.find().populate('Payment.MaPayment').populate('Spend.MaSpend').exec(function(err,data){
+    staffjob.find().populate('Payment').populate('Spend').exec(function(err,data){
         if(err){
             res.json({result : 0});
         }

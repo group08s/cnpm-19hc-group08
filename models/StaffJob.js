@@ -23,19 +23,8 @@ const Schema = mongoose.Schema;
 
 const StaffJob = new Schema({
     IDStaff : {type : String , required : true, trim : true},
-    Spend : [
-        {
-            MaSpend : {type : mongoose.Types.ObjectId ,require : true, ref : "Spend"},
-            TimeTaken : {type : Number , require:true}
-        }
-    ],
-    Payment : [
-        {
-            MaPayment : {type : mongoose.Types.ObjectId , required : true,ref : "Payment"},
-            TimeTaken : {type : Number , required : true}
-        }
-    ]
-    
+    Spend : [ {type : mongoose.Types.ObjectId ,ref : "Spend"}],
+    Payment : [{type : mongoose.Types.ObjectId , required : true,ref : "Payment"}]
 },{collection : "StaffJob"});
 
 const ModelStaffJob = mongoose.model("StaffJob",StaffJob);

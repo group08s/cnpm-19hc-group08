@@ -18,6 +18,7 @@ const serviceRouter = require('./routes/service.route');
 const spendRouter = require('./routes/spend.route');
 const staffjobRouter = require('./routes/staffjob.route');
 const paymentRouter = require('./routes/payment.route');
+const customer = require('./routes/customer.route');
 
 const mongoose = require('mongoose');
 const db = mongoose.connection;
@@ -83,6 +84,7 @@ app.use('/staffjob',staffjobRouter);
 
 app.use('/payment',paymentRouter);
 
+app.use('/customer',customer);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
