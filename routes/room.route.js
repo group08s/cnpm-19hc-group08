@@ -5,7 +5,7 @@ var controller = require('../controllers/room.controller');
 
 router.post('/createroom',controller.AddRoom);
 
-router.post('/listroom', controller.ListRoom);
+router.get('/listroom', controller.ListRoom);
 
 router.post('/api/findfloor',controller.findFloor);
 

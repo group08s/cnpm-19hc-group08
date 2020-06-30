@@ -1,6 +1,7 @@
-
-
 <div class="row">
+
+
+
   <div class="col-md-3 col-sm-3">
     <button type="button" class="btn btn-outline-success btn-lg btn-block  mb-2">Phòng
       Sạch( Phòng Trống ) <span class="badge badge-success">4 </span> </button>
@@ -20,28 +21,120 @@
 
   <div class="col-12">
     <div class="row overflow-auto text-center">
-      <div  class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-          <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success w-100">
-            <div  class="card-body">
-              <h5 class="card-title">1010000</h5>
+      <div *ngFor="let room of listAllRoom" class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
+
+        <!-- XANH -->
+        <div *ngIf="(room.Status == 0)">
+          <button type="button" data-toggle="modal" [attr.data-target]="'#room'+ room._id"
+            class="btn btn-success w-100">
+            <div class="card-body font-weight-bold">
+              <h5 class="card-title"> {{room.IdRoom}}</h5>
               <p class="card-text">VIP</p>
             </div>
           </button>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+          <div class="modal fade" [attr.id]="'room'+room._id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-success" id="exampleModalLongTitle">Phòng {{room.IdRoom}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
               </div>
-              <div class="modal-body">
-                ...
+            </div>
+          </div>
+
+        </div>
+        <!-- VANG -->
+        <div *ngIf="(room.Status == 1)">
+          <button type="button" data-toggle="modal" [attr.data-target]="'#room'+ room._id"
+            class="btn btn-warning w-100">
+            <div class="card-body text-white font-weight-bold">
+              <h5 class="card-title"> {{room.IdRoom}}</h5>
+              <p class="card-text">VIP</p>
+            </div>
+          </button>
+          <div class="modal fade" [attr.id]="'room'+room._id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-warning" id="exampleModalLongTitle">Phòng {{room.IdRoom}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+        <!-- DO -->
+        <div *ngIf="(room.Status == 2)">
+          <button type="button" data-toggle="modal" [attr.data-target]="'#room'+ room._id" class="btn btn-danger w-100">
+            <div class="card-body font-weight-bold">
+              <h5 class="card-title"> {{room.IdRoom}}</h5>
+              <p class="card-text">VIP</p>
+            </div>
+          </button>
+          <div class="modal fade" [attr.id]="'room'+room._id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-danger" id="exampleModalLongTitle">Phòng {{room.IdRoom}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEN -->
+        <div *ngIf="(room.Status >= 3)">
+          <button type="button" data-toggle="modal" [attr.data-target]="'#room'+ room._id" class="btn btn-dark w-100">
+            <div class="card-body font-weight-bold">
+              <h5 class="card-title"> {{room.IdRoom}}</h5>
+              <p class="card-text">VIP</p>
+            </div>
+          </button>
+          <div class="modal fade" [attr.id]="'room'+room._id" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-dark" id="exampleModalLongTitle">Phòng {{room.IdRoom}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
@@ -65,80 +158,6 @@
 
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success  w-100">
-          <div class="card-body">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger  w-100">
-          <div class="card-body ">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn  btn-success  w-100">
-          <div class="card-body">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-warning  w-100">
-          <div class="card-body ">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success  w-100">
-          <div class="card-body">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger  w-100">
-          <div class="card-body ">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-warning  w-100">
-          <div class="card-body">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-     
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success  w-100">
-          <div class="card-body">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
-      </div>
-      <div class="col-lg-2 col-md-3 col-sm-6 col-12 mb-3">
-        <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success  w-100">
-          <div class="card-body">
-            <h5 class="card-title">101</h5>
-            <p class="card-text">VIP</p>
-          </div>
-        </button>
       </div>
 
     </div>
