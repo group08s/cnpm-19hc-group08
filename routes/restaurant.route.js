@@ -7,7 +7,7 @@ router.post('/createdish',controller.CreateRestaurant);
 
 router.get('/listdish',controller.ListDish);
 
-router.post('/categorydish',controller.CateRes);
+router.get('/categorydish',controller.CateRes);
 
 router.post('/deletedish',controller.DeleteDish);
 
