@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ServiceCustomer = new Schema({
+
     IDCustomer : {type : mongoose.Types.ObjectId , require : true , ref : "Customer"},
     Note : {type : String , trim : true},
     BookRoom: [
@@ -23,6 +24,7 @@ const ServiceCustomer = new Schema({
     Status : {type : Number }
     // 1 là khách hàng đang ở
     // 2 là khách hàng đã đi
+
 }, {collection: "ServiceCustomer"});
 
 const ModelServiceCustomer = mongoose.model("ServiceCustomer", ServiceCustomer);

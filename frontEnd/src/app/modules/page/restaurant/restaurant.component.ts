@@ -33,8 +33,8 @@ export class RestaurantComponent implements OnInit {
   ngOnInit() {
     this.restaurantPageService.getAllDiks().subscribe((res: any) => {
       if (res) {
-        console.log('showlist: ', this.listAllDisk);
         this.listAllDisk = res;
+        console.log('showlist: ', res);
       }
     });
    }
