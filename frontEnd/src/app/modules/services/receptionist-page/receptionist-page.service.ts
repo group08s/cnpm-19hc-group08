@@ -12,4 +12,7 @@ export class ReceptionistPageService {
   getAllRoom() {
     return this.serviceReceptionist.getAll();
   }
+  getIdCustomer(id) {
+    return this.serviceReceptionist.getCustomer(id);
+  }
 }

@@ -62,7 +62,7 @@ module.exports.findProfileCustomer = function(req,res){
 }
 
 module.exports.findRoomCustomer = function(req,res){
-    const txt_room = "PH101";
+    const txt_room = req.body._id;
     servicecustomer.findOne({'BookRoom.IdRoom' : txt_room , Status : 1}).populate('IDRestaurant.restaurant').populate('IDService').populate('IDCustomer').exec(function(err,data){
         if(err){
             console.log(err);
@@ -75,17 +75,19 @@ module.exports.findRoomCustomer = function(req,res){
                     console.log(err);
                 }
                 else{
-                    // console.log(dt);
-                    // res.json({kq1 : kq,kq2 : dt});
-                  //  var obj = JSON.parse(kq);
                     
-                    //obj['Id_relationship'].push(dt);
-                    //delete aa.Id_relationship;
-                    const temp = kq;
-                    var aaaa= delete temp.Status;
+                    const Employee = JSON.stringify(data);
                     
-                    console.log(temp) ;
+                    console.log(Employee);
+                    // expected output: "John"
                     
+                    const a = JSON.parse(Employee);
+                    delete a['IDCustomer'];
+                    a.IDCustomer = dt;
+                    console.log(a);
+                    // expected output: undefined
+                    
+                    res.json(a);
                 }
             })
         }

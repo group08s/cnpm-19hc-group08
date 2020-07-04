@@ -8,6 +8,8 @@ import { ReceptionistPageService } from '@app/modules/services';
 })
 export class RoomDiagramComponent implements OnInit {
   listAllRoom: any;
+  inforRoom: any;
+
 
   constructor(
     public receptionistPageService: ReceptionistPageService
@@ -18,6 +20,15 @@ export class RoomDiagramComponent implements OnInit {
       if (res) {
         this.listAllRoom = (res);
         console.log('showlistRoom: ', this.listAllRoom);
+      }
+    });
+  }
+  onClickMe(id) {
+    console.log(id);
+    this.receptionistPageService.getIdCustomer(id).subscribe((res: any) => {
+      if (res) {
+       // this.inforRoom = (res);
+        console.log('showlistRoom: ', res);
       }
     });
   }
