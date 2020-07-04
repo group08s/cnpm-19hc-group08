@@ -62,17 +62,17 @@ module.exports.findProfileCustomer = function(req,res){
 }
 
 module.exports.findRoomCustomer = function(req,res){
-    const txt_room = req.body._id;
+    const txt_room = "PH101";//req.body._id;
     servicecustomer.findOne({'BookRoom.IdRoom' : txt_room , Status : 1}).populate('IDRestaurant.restaurant').populate('IDService').populate('IDCustomer').exec(function(err,data){
         if(err){
-            console.log(err);
+            return res.json({resutl : 0});
         }
         else{
             const kq = data;
             //console.log(data.IDCustomer._id);
             customer.findOne(data.IDCustomer._id).populate('Id_relationship').exec(function(err,dt){
                 if(err){
-                    console.log(err);
+                    return res.json({resutl : 0});
                 }
                 else{
                     
@@ -87,7 +87,7 @@ module.exports.findRoomCustomer = function(req,res){
                     console.log(a);
                     // expected output: undefined
                     
-                    res.json(a);
+                    return res.json(a);
                 }
             })
         }
