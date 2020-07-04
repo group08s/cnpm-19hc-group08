@@ -1,13 +1,15 @@
 var staff = require('../models/Staff');
 var staffjob = require('../models/StaffJob');
+
+
 module.exports.AddStaff = function (req, res) {
     var newstaff = new staff({
-        IdStaff: req.body.txt_idstaff,
+        //IdStaff: req.body.txt_idstaff,
         NameStaff: req.body.txt_namestaff,
         Gender: req.body.txt_gender,
-        DateOfBirth: 00000,
+        DateOfBirth: req.body.txt_dateofbirth,
         Phone: req.body.txt_phone,
-        JoinDate: 000000,
+        JoinDate: req.body.txt_joindate,
         Decentralization: req.body.numer_decen
     });
 
@@ -17,7 +19,7 @@ module.exports.AddStaff = function (req, res) {
         } else {
             if (req.body.numer_decen == 2 || req.body.numer_decen == 3)// la nhân viên thu tiền hoặc quản lí khách sạn
             {
-                const newStaffjob = new staffjob({ IDStaff: req.body.txt_idstaff });
+                const newStaffjob = new staffjob({ IDStaff: newstaff._id });
                 // sau khi thêm nhân viên thành công thì sẽ mặc đßịnh thêm quản lí vào danh sách công việc quản lí
                 newStaffjob.save(function (err) {
                     if (err) {
@@ -27,6 +29,9 @@ module.exports.AddStaff = function (req, res) {
                         res.json({ result: 1 });
                     }
                 });
+            }
+            else{
+                res.json({ result: 1 });
             }
         }
     });

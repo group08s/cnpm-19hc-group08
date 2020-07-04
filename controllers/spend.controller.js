@@ -1,9 +1,42 @@
 const spend = require('../models/Spend');
 const staffjob = require('../models/StaffJob');
 
+module.exports.addliststaff = function(req,res){
+    const data = req.body.txt_data;
+    const temp = JSON.parse(data);
+    const staff = ['5efb166e50df35238e10e02c','5efb164c50df35238e10e02a',]; 
+    temp.forEach(aa => {
+        const newspend = new spend({
+            Receiver : aa.Receiver,
+            Amount : aa.Amount,
+            Status : aa.Status,
+            Note : aa.Note,
+            Date_taken : aa.Date_taken
+        });
+        newspend.save(function(err){
+            if(err){
+                res.json({error : err});
+            }
+            else{
+                const num = getRndInteger(0,2);
+                staffjob.findOneAndUpdate(
+                    {IDStaff : staff[num]},
+                    {$push : {Spend : newspend._id}},
+                    function(err){
+                        console.log("oke");
+                    }
+                )
+            }
+        });
+    });
+    
+    res.json({result : 1});
+}
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 module.exports.addSpend = function(req,res){
     const newspend = new spend({
-        IdSpend : req.body.txt_idspend,
         Receiver : req.body.txt_receiver,
         Amount : req.body.number_amount,
         Status : req.body.number_status,
@@ -19,12 +52,11 @@ module.exports.addSpend = function(req,res){
             // thêm thành công
             //res.json({result : 1});
             // sau khi đó phải thêm idspend vào staffjob để biết nhân viên nào đã thực nhiện thanh toán
-            const staffjob_spend = {MaSpend : newspend._id,TimeTaken : 00000};
             staffjob.findOneAndUpdate(
                 {IDStaff : req.body.txt_idstaff},
                 {
                     $push : {
-                        Spend : staffjob_spend
+                        Spend : newspend._id
                     }
                 },
                 function(err){

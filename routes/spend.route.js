@@ -3,6 +3,8 @@ const router = express.Router();
 
 const controller = require('../controllers/spend.controller');
 
+router.post('/addlist',controller.addliststaff);
+
 router.post('/addspend',controller.addSpend);
 
 router.post('/api/listspend',controller.listSpend);

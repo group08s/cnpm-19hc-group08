@@ -16,6 +16,7 @@ router.post('/', function (req, res, next) {
     });
 });
 
+
 router.post('/addstaff', controller.AddStaff);
 
 router.post('/api/liststaff',controller.ListStaff);

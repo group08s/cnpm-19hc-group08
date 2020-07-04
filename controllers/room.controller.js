@@ -2,17 +2,16 @@ var room = require('../models/Room');
 
 module.exports.AddRoom = function(req,res){
     var newroom = new room({
-        IdRoom : '2103921',
-        RoomName : 'BN123',
-        People : 4,
-        Price : 12000000,
-        Status : 0,
-        Floor : 1
+        RoomName : req.body.txt_name,
+        People : req.body.num_people,
+        Price : req.body.num_price,
+        Status : req.body.num_status,
+        Floor : req.body.num_floor
     });
 
     newroom.save(function(err){
         if(err){
-            res.json({result : 0});
+            res.json({result : err});
         }else{
             res.json({result : 1});
         }
@@ -73,4 +72,4 @@ module.exports.deleteRoom = function(req,res){
         }
     });
 }
-
+// update phong

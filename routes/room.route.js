@@ -3,7 +3,7 @@ var router = express.Router();
 
 var controller = require('../controllers/room.controller');
 
-router.post('/createroom',controller.AddRoom);
+router.post('/addroom',controller.AddRoom);
 
 router.post('/listroom', controller.ListRoom);
 

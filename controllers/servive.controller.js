@@ -2,7 +2,7 @@ const service = require('../models/Service');
 
 module.exports.addService = function(req,res){
     const newService = new service({
-        IdService : req.body.txt_IdService,
+        //IdService : req.body.txt_IdService,
         Name : req.body.txt_Name,
         Price : req.body.number_Price,
         Note : req.body.txt_Note,
