@@ -1,9 +1,9 @@
 var servicecustomer = require('../models/ServiceCustomer');
-
+var customer = require('../models/Customer');
 // thêm các món ăn ở nhà hàng vào cho khách hàng
 module.exports.addRestaurant = function (req, res) {
     // nhap vao phong
-    servicecustomer.findOne({ "BookRoom.IdRoom": 'PH006', Status: 1 }, function (err, data) {
+    servicecustomer.findOne({ "BookRoom.IdRoom": 'PH101', Status: 1 }, function (err, data) {
         if (err) {
             return res.json({ resutl: 0 });
         } else {
@@ -26,7 +26,7 @@ module.exports.addRestaurant = function (req, res) {
 
 // thêm các dịch vụ sử dụng cho khách
 module.exports.addService = function (req, res) {
-    const txtroom = "PH006"; // bien chuyen vao
+    const txtroom = "PH101"; // bien chuyen vao
     const txt_idservice = "5efaf97293b4bd13068ace50"; // bien chuyen vao
 
     // tim phong dang o va co tinh trang la chua di
@@ -43,7 +43,7 @@ module.exports.addService = function (req, res) {
                         return res.json({ resutl: 0 });
                     }
                     else {
-                        return res.json({ resutl: 0 });
+                        return res.json({ resutl: 1 });
                     }
                 });
         }
@@ -57,6 +57,37 @@ module.exports.findProfileCustomer = function(req,res){
             res.json({resutl : err});
         }else{
             res.json(data);
+        }
+    })
+}
+
+module.exports.findRoomCustomer = function(req,res){
+    const txt_room = "PH101";
+    servicecustomer.findOne({'BookRoom.IdRoom' : txt_room , Status : 1}).populate('IDRestaurant.restaurant').populate('IDService').populate('IDCustomer').exec(function(err,data){
+        if(err){
+            console.log(err);
+        }
+        else{
+            const kq = data;
+            //console.log(data.IDCustomer._id);
+            customer.findOne(data.IDCustomer._id).populate('Id_relationship').exec(function(err,dt){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    // console.log(dt);
+                    // res.json({kq1 : kq,kq2 : dt});
+                  //  var obj = JSON.parse(kq);
+                    
+                    //obj['Id_relationship'].push(dt);
+                    //delete aa.Id_relationship;
+                    const temp = kq;
+                    var aaaa= delete temp.Status;
+                    
+                    console.log(temp) ;
+                    
+                }
+            })
         }
     })
 }

@@ -8,4 +8,6 @@ route.post('/addrestaurant', controller.addRestaurant);
 route.post('/addservice',controller.addService);
 
 route.post('/findid',controller.findProfileCustomer);
+
+route.post('/findroom',controller.findRoomCustomer);
 module.exports = route;
