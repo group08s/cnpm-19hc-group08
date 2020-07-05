@@ -14,7 +14,8 @@ export class BookRoomComponent implements OnInit {
   nameChild: any;
   phoneChild: any;
   dobirth: any;
-  selectedRoom = '0';
+  selectedRoom: string;
+
   scriptPost = {
     RoomName: '',
     Name: '',
@@ -23,8 +24,8 @@ export class BookRoomComponent implements OnInit {
     Address: '',
     IdentityCard: '',
     Email: '',
-    ArrivalTime: '',
-    LeaveTime: '',
+    ArrivalTime: 0,
+    LeaveTime: 0,
     Relationship: [],
   };
 
@@ -47,41 +48,51 @@ export class BookRoomComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.aaaa['Relationship'].push(this.Relationship);
-    // console.log(this.aaaa);
     this.customer = new FormGroup({
       name: new FormControl,
       phone: new FormControl,
       cmnd: new FormControl,
       address: new FormControl,
-      room: new FormControl,
+      leaveTime: new FormControl,
 
     });
     this.receptionistPageService.getAllRoom().subscribe((res: any) => {
       if (res) {
         this.listAllRoom = res.filter(element => element.Status === 1);
-        console.log('showlistRoom: ', this.listAllRoom);
+        this.selectedRoom = this.listAllRoom[0].RoomName;
+        // console.log('showlistRoom: ', this.listAllRoom);
         setInterval(() => {
           this.string_arrivalTime = moment().format('YYYY-MM-DDTHH:mm:ss');
-          console.log(this.string_arrivalTime);
+          // console.log(moment( this.string_arrivalTime).format('X'));
+
         }, 1000);
       }
     });
   }
   onSubmit(data) {
-   // console.log(data);
+    // console.log(data);
     this.scriptPost.Name = data.name;
     this.scriptPost.IdentityCard = data.cmnd;
     this.scriptPost.Phone = data.phone;
     this.scriptPost.Address = data.address;
-
-    console.log(this.selectedRoom);
+    this.list_customerChild.forEach(value => this.scriptPost.Relationship.push(value));
+    this.scriptPost.RoomName = this.selectedRoom;
+    this.scriptPost.ArrivalTime = moment().unix();
+    this.scriptPost.LeaveTime = Number(moment(data.leaveTime).format('X'));
+    //  data.leaveTime;
+    this.receptionistPageService.postCustometCheckin(this.scriptPost).subscribe((res: any) => {
+      if (res) {
+        console.log(res);
+      }
+    });
+    console.log(this.scriptPost);
   }
+
   addtable() {
     if (this.nameChild != null && this.phoneChild != null && this.dobirth != null) {
       this.list_customerChild.push(
         {
-          stt: this.list_customerChild.length + 1,
+          // stt: this.list_customerChild.length + 1,
           name: this.nameChild,
           phone: this.phoneChild,
           dateofbirth: this.dobirth,
@@ -89,13 +100,11 @@ export class BookRoomComponent implements OnInit {
           // aaa: moment.unix(Number(moment( this.dobirth).format('X'))).format('YYYY-MM-DD')
         });
     }
-    console.log(this.list_customerChild);
+    // console.log(this.list_customerChild);
   }
 
   selectChange(event: any) {
-    // update the ui
     this.selectedRoom = event.target.value;
-    console.log('show sele: ', this.selectedRoom  );
   }
   deleteItem(item) {
     const exitIndex = this.list_customerChild.findIndex(temp => {

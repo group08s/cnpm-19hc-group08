@@ -15,4 +15,7 @@ export class ReceptionistPageService {
   getIdCustomer(id) {
     return this.serviceReceptionist.getCustomer(id);
   }
+  postCustometCheckin(txt_data) {
+    return this.serviceReceptionist.postCustometCheckin(txt_data);
+  }
 }

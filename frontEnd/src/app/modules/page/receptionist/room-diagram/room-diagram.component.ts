@@ -25,7 +25,7 @@ export class RoomDiagramComponent implements OnInit {
     this.receptionistPageService.getAllRoom().subscribe((res: any) => {
       if (res) {
         this.listAllRoom = (res);
-        console.log('showlistRoom: ', this.listAllRoom);
+        // console.log('showlistRoom: ', this.listAllRoom);
       }
     });
   }

@@ -3,7 +3,7 @@ const serviceCustomer = require('../models/ServiceCustomer');
 const room = require('../models/Room');
 module.exports.addCustomer = function(req,res){
     const data = req.body.txt_data;
-    //console.log(data);
+    console.log(data);
     const object = JSON.parse(data);
     //console.log(Object.keys(object.Relationship).length);
     // them nguoi dau tien

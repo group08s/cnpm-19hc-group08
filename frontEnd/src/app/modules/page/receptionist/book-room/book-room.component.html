@@ -25,22 +25,20 @@
 
             <div class="form-row">
               <div class="form-group col-md-2">
-                <label >Phòng số</label>
-                <select class="form-control"  (change)="selectChange($event)">
-                  <option *ngFor="let room of listAllRoom; let i = index" [value]="room.RoomName" [selected]="i==1">
+                <label>Phòng số</label>
+                <select class="form-control" (change)="selectChange($event)">
+                  <option *ngFor="let room of listAllRoom; let i = index" [value]="room.RoomName" [selected]="i==0">
                     {{room.RoomName}}
                   </option>
                 </select>
               </div>
               <div class="form-group col-md-6">
                 <label for="inputCity">Thời gian đến</label>
-                <input type="datetime-local" step="1" [attr.value]="string_arrivalTime" class="form-control"
-                  id="timeArrival">
+                <input type="datetime-local" step="1" [attr.value]="string_arrivalTime" class="form-control" >
               </div>
               <div class="form-group col-md-6">
                 <label for="inputZip">Thời gian đi</label>
-                <input type="datetime-local" step="1" [attr.min]="string_arrivalTime" class="form-control"
-                  id="timeaLeave">
+                <input type="datetime-local" step="1" [attr.min]="string_arrivalTime"  formControlName="leaveTime" class="form-control" >
               </div>
             </div>
           </div>
@@ -104,7 +102,7 @@
 
 
         <div class="mt-5 text-center">
-          <button type="submit" class="w-100 btn btn-primary ">Xác Nhận Đặt Phòng</button>
+          <button class="w-100 btn btn-primary ">Xác Nhận Đặt Phòng</button>
 
         </div>
       </form>
