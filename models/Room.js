@@ -5,10 +5,7 @@ const Room = new Schema({
     People : {type : Number , required : true},
     Price : { type : Number,required :true},
     Status : {type :Number , required : true},
-    // 0 la ko co nguoi (mặc định là 0 khi khởi tạo)
-    // 1 la phong da co khach
-    // 2 la phong dang sua chua , bao tri
-    // 4 la phong ban
+    
     Floor : {type : Number , required : true}
     // mac dinh la 4 lau
 },{collection: "Room"});

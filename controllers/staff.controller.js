@@ -4,20 +4,19 @@ var staffjob = require('../models/StaffJob');
 
 module.exports.AddStaff = function (req, res) {
     var newstaff = new staff({
-        //IdStaff: req.body.txt_idstaff,
-        NameStaff: req.body.txt_namestaff,
-        Gender: req.body.txt_gender,
-        DateOfBirth: req.body.txt_dateofbirth,
-        Phone: req.body.txt_phone,
-        JoinDate: req.body.txt_joindate,
-        Decentralization: req.body.numer_decen
+        NameStaff: "Khủng Long Bố",
+        Gender: "Nam",
+        DateOfBirth: 647078004,
+        Phone: "021930219",
+        JoinDate: 1593849204,
+        Decentralization: 2
     });
 
     newstaff.save(function (err) {
         if (err) {
             res.json({ result: 0, error: err })
         } else {
-            if (req.body.numer_decen == 2 || req.body.numer_decen == 3)// la nhân viên thu tiền hoặc quản lí khách sạn
+            if (newstaff.Decentralization == 2 || newstaff.Decentralization == 3)// la nhân viên thu tiền hoặc quản lí khách sạn
             {
                 const newStaffjob = new staffjob({ IDStaff: newstaff._id });
                 // sau khi thêm nhân viên thành công thì sẽ mặc đßịnh thêm quản lí vào danh sách công việc quản lí

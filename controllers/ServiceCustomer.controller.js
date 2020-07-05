@@ -1,5 +1,6 @@
 var servicecustomer = require('../models/ServiceCustomer');
 var customer = require('../models/Customer');
+var room = require('../models/Room');
 // thêm các món ăn ở nhà hàng vào cho khách hàng
 module.exports.addRestaurant = function (req, res) {
     // nhap vao phong
@@ -55,6 +56,16 @@ module.exports.findProfileCustomer = function(req,res){
     servicecustomer.findOne({IDCustomer : txt_id}).populate('IDRestaurant.restaurant').populate('IDService').exec(function(err,data){
         if(err){
             res.json({resutl : err});
+        }else{
+            res.json(data);
+        }
+    })
+}
+
+module.exports.findListRoom  = function(req,res){
+    servicecustomer.find({Status : 1}).populate('IDCustomer').select('BookRoom.IdRoom IDCustomer').exec(function(err,data){
+        if(data == null || err){
+            return res.json({resutl : 0});
         }else{
             res.json(data);
         }

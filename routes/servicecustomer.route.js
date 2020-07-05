@@ -10,4 +10,6 @@ route.post('/addservice',controller.addService);
 route.post('/findid',controller.findProfileCustomer);
 
 route.post('/findroom',controller.findRoomCustomer);
+
+route.post('/findlistroom',controller.findListRoom);
 module.exports = route;
