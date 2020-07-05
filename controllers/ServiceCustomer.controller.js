@@ -62,9 +62,9 @@ module.exports.findProfileCustomer = function(req,res){
 }
 
 module.exports.findRoomCustomer = function(req,res){
-    const txt_room = "PH101";//req.body._id;
+    const txt_room = req.body._id;
     servicecustomer.findOne({'BookRoom.IdRoom' : txt_room , Status : 1}).populate('IDRestaurant.restaurant').populate('IDService').populate('IDCustomer').exec(function(err,data){
-        if(err){
+        if(data == null){
             return res.json({resutl : 0});
         }
         else{

@@ -5,12 +5,15 @@ import { ReceptionistRoutingModule } from './receptionist-routing.module';
 import { ReceptionistComponent } from './receptionist/receptionist.component';
 import { RoomDiagramComponent } from './room-diagram/room-diagram.component';
 import { BookRoomComponent } from './book-room/book-room.component';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ReceptionistComponent, RoomDiagramComponent, BookRoomComponent],
   imports: [
     CommonModule,
-    ReceptionistRoutingModule
+    ReceptionistRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class ReceptionistModule { }

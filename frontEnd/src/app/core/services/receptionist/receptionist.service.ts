@@ -5,13 +5,13 @@ import { environment } from '@environment';
 
 export enum ApiPath {
   GET_ALL_ROOM = '/room/listroom',
-  POST= '/serviceCustomer/findroom',
+  POST_ID_GET_INFO_ROOM= '/serviceCustomer/findroom',
 }
 
 @Injectable({
   providedIn: 'root'
 })
-
+  
 export class ReceptionistService {
 
   httpOptions = {
@@ -27,7 +27,7 @@ export class ReceptionistService {
     return this.http.get(url);
   }
   getCustomer(id: any) {
-    const url = environment.rootApiUrl + `${ApiPath.POST}`;
+    const url = environment.rootApiUrl + `${ApiPath.POST_ID_GET_INFO_ROOM}`;
     console.log('show url: ', url);
 
     return this.http.post(url , {_id:id}, this.httpOptions);
