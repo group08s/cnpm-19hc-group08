@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const Customer = new Schema({
     //IdCustomer : {type : String , required : true , trim : true},
     Name : {type : String , required : true ,trim : true},
-    DateOfBirth :{type : Number , required : true},
+    DateOfBirth :{type : Number},
     Phone : {type : String , trim : true},
     Address : {type : String , trim : true},
     IdentityCard : {type : String , trim : true},

@@ -23,7 +23,7 @@ module.exports.addCustomer = function(req,res){
         else{
             // Luu y
             // ID room la ten cua phong - thoi gian den - thoi gian di
-            const Booking = {IdRoom : req.body.txt_room,ArrivalTime : 1593505099, LeaveTime : 1594369099};
+            const Booking = {IdRoom : data.RoomName,ArrivalTime : data.ArrivalTime, LeaveTime : 0};
             const newServiceCus = new serviceCustomer({
                 // khoi tao 1 hop dong
                 IDCustomer : newCus._id, // chu cua phong 
@@ -115,7 +115,7 @@ module.exports.ListCustomer = function(req,res){
         }
     })
 }
-
+    
 module.exports.findOneCustomer = function(req,res){
     customer.findOne({IdCustomer : req.body.txt_idcustomer},function(err,data){
         if(err){
