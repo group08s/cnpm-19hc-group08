@@ -230,3 +230,19 @@ h1 p {
   color: #fff !important;
 }
 /*# sourceMappingURL=style1.css.map */
+
+app-print-layout {
+  /* hide the printing component from @media screen */
+  display: none;
+}
+
+@media print {
+  .container-restaurant{
+    display: none;
+  }
+
+  app-print-layout {
+    /* hide the printing component from @media screen */
+    display: block;
+  }
+}

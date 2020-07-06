@@ -1,0 +1,32 @@
+<div *ngIf="getOrder">
+  <div>
+    <h4>Hóa Đơn Thanh Toán</h4>
+  </div>
+  <div >
+    <p><strong> Mã Hóa Đơn: </strong> {{getOrder.IdBill}} </p>
+    <p><strong> Họ Và Tên:</strong> {{getOrder.Name}}</p>
+    <p><strong> Số Điện Thoại: </strong> {{getOrder.Phone}}</p>
+    <p><strong> Ngày Giờ: </strong> </p>
+    <div>
+      <div>
+        <div>
+          <ol >
+            <li *ngFor="let temp of getOrder.listCart">
+              <div>
+                <h5>
+                  {{temp.item.Dish}}
+                </h5>
+                <div >
+                  <p > {{temp.item.Price}}₫ x sl:{{temp.number}} = {{ temp.item.Price * temp.number }}đ</p>
+                </div>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="sub-total">
+        <span><strong>Tổng tiền: </strong>{{getOrder.sumMoney}} ₫</span>
+      </div>
+    </div>
+  </div>
+</div>

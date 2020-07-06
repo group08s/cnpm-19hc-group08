@@ -1,22 +1,22 @@
-<div class="container-fluid mt-20 ">
+<div class="container-fluid mt-20 container-restaurant">
     <div class="row">
         <!-- menu left -->
         <div class="col-md-2 ">
             <ul class="navbar-nav mr-auto my-3">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">All</a>
+                <li class="nav-item custom-active" [ngClass]="{'active': curChoose === 'all'}">
+                    <a class="nav-link" (click)="changeTyleDish('all')">All</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Food</a>
+                <li class="nav-item custom-active" [ngClass]="{'active': curChoose === 'food'}">
+                    <a class="nav-link" (click)="changeTyleDish('food')">Food</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Drinks</a>
+                <li class="nav-item custom-active" [ngClass]="{'active': curChoose === 'drinks'}">
+                    <a class="nav-link" (click)="changeTyleDish('drinks')">Drinks</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Appetizer</a>
+                <li class="nav-item custom-active" [ngClass]="{'active': curChoose === 'appetizer'}">
+                    <a class="nav-link" (click)="changeTyleDish('appetizer')">Appetizer</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dessert</a>
+                <li class="nav-item custom-active" [ngClass]="{'active': curChoose === 'dessert'}">
+                    <a class="nav-link" (click)="changeTyleDish('dessert')">Dessert</a>
                 </li>
             </ul>
         </div>
@@ -27,144 +27,21 @@
         <!-- menu center -->
         <div class="col-md-7 " style="overflow: overlay; height: 90vh;">
             <div class="row">
-
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/drink-2.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                              <img class="card-img-top" src="./assets/img/appetizer.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
+                <ng-container *ngFor="let item of listDiskFilter" >
+                    <div class="col-sm-4 col-lg-3">
+                        <div class="card">
+                            <div class="card-img">
+                                <!-- `${'./assets/img/' + 'drink-2.png' }` -->
+                                <img class="card-img-top" src="{{'./assets/img/restaurant/' + item.url_img}}" alt="card image">
+                            </div>
+                            <div class="card-body text-center">
+                                <h4 class="card-title ">{{ item.Dish }}</h4>
+                                <p class="card-text font-weight-bold">{{item.Price}} đ</p>
+                                <a type="button" class="text-center w-75 btn btn-outline-manager" (click)="addCart(item)"> Add to cart </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                        <img class="card-img-top" src="./assets/img/Dessert.png" alt="card image">
-                    </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/food/food_02.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/food/food_01.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/food/food_03.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/drink-1.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/drink-1.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                            <img class="card-img-top" src="./assets/img/drink-2.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                              <img class="card-img-top" src="./assets/img/appetizer.png" alt="card image">
-                        </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-lg-3">
-                    <div class="card">
-                        <div class="card-img">
-                        <img class="card-img-top" src="./assets/img/Dessert.png" alt="card image">
-                    </div>
-                        <div class="card-body text-center">
-                            <h4 class="card-title ">Sunlimetech</h4>
-                            <p class="card-text font-weight-bold">25.000 đ</p>
-                            <button type="button" class="text-center w-75 btn btn-outline-manager"> Add to cart </button>
-                        </div>
-                    </div>
-                </div>
+                </ng-container>
             </div>
         </div>
         <!--end menu center -->
@@ -178,19 +55,19 @@
                     <label class="input-group-text">Type</label>
                 </div>
                 <select class="custom-select" id="" (change)="selectChangeCus($event)">
-                    <option *ngFor="let customer of Customers; let i = index" [value]="customer.name" [selected]="i == 0">
+                    <option *ngFor="let customer of Customers; let i = index" [value]="customer.id" [selected]="i == 0">
                     {{customer.name}}
                     </option>
                 </select>
                 <!-- <span>You selected: </span><b>{{selectedCustomer}}</b> -->
 
-                <div class="input-group-prepend">
+                <div *ngIf="selectedCustomer === '0'" class="input-group-prepend">
                     <label class="input-group-text">Room</label>
                 </div>
-                <select class="custom-select" id="" (change)="selectChangeRoom($event)">
+                <select *ngIf="selectedCustomer === '0'" class="custom-select" id="" (change)="selectChangeRoom($event)">
 
-                    <option *ngFor="let room of Rooms; let i = index" [value]="room.name">
-                    {{room.name}}
+                    <option *ngFor="let room of ListRoom" [value]="room.Room">
+                    {{room.Room}}
                     </option>
                 </select>
                 <!-- <span>You selected: </span><b>{{selectedRoom}}</b> -->
@@ -198,228 +75,59 @@
             </div>
 
 
-            <form>
+            <form *ngIf="selectedCustomer === '0'">
                 <div class="form-row px-3">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Name">
+                        <input [attr.disabled]="''" value="{{selectedRoom.NameCustomer}}" type="text" class="form-control" placeholder="Name">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Phone">
+                        <input [attr.disabled]="''" value="{{selectedRoom.PhoneCustomer}}" type="text" class="form-control" placeholder="Phone">
+                    </div>
+                </div>
+            </form>
+
+            <form *ngIf="selectedCustomer !== '0'">
+                <div class="form-row px-3">
+                    <div class="col">
+                        <input type="text" (keyup)="setValueInput('name', $event)" class="form-control" placeholder="Name" required>
+                    </div>
+                    <div class="col">
+                        <input type="number" (keyup)="setValueInput('phone', $event)" class="form-control" placeholder="Phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
                     </div>
                 </div>
             </form>
 
 
-
-
             <div class="mini-cart-bottom">
                 <div class="prod">
                     <div class="product-cart">
-
-                        <ol class="list-unstyled mb-0" data-row="49" data-product="49">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#n" title="Tinh chất dưỡng tóc miseen">
-                                        <img src="./assets/img/food/food_01.png" title="Tinh chất dưỡng tóc miseen" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 500,000 ₫</span>
+                        <ng-container *ngFor="let value of listCart">
+                            <ol class="list-unstyled mb-0" data-row="49" data-product="49">
+                                <li class="d-flex">
+                                    <div class="thumb-img-cartmini">
+                                        <a href="#n" title="Tinh chất dưỡng tóc miseen">
+                                            <img src="{{'./assets/img/restaurant/' + value.item.url_img}}" alt="card image" title="Tinh chất dưỡng tóc miseen" class="">
+                                        </a>
+                                    </div>
+                                    <div class="product-detail">
+                                        <h3 class="product-name-mini">
+                                            <a href="#">{{ value.item.Dish }}</a>
+                                        </h3>
+                                        <div class="product-info">
+                                            <div class="product-quanity">Số lượng : {{ value.number }}</div>
+                                            <div class="product-price">
+                                                <span class="price-sale">Giá : {{value.item.Price}} ₫</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                        <ol class="list-unstyled mb-0" data-row="48" data-product="48">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#" title="chì kẻ mắt Kohl">
-                                        <img src="./assets/img/food/food_01.png" title="chì kẻ mắt Kohl" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 70,000 ₫</span>
-                                        </div>
+                                    <div class="produc-remove">
+                                        <a (click)="deleteCartItem(value.item)" class="close delete-cart-item" title="Xóa">
+                                            <i class="fa fa-times"></i>
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                        <ol class="list-unstyled mb-0" data-row="49" data-product="49">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#n" title="Tinh chất dưỡng tóc miseen">
-                                        <img src="./assets/img/food/food_01.png" title="Tinh chất dưỡng tóc miseen" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 500,000 ₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                        <ol class="list-unstyled mb-0" data-row="48" data-product="48">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#" title="chì kẻ mắt Kohl">
-                                        <img src="./assets/img/food/food_01.png" title="chì kẻ mắt Kohl" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 70,000 ₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                        <ol class="list-unstyled mb-0" data-row="49" data-product="49">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#n" title="Tinh chất dưỡng tóc miseen">
-                                        <img src="./assets/img/food/food_01.png" title="Tinh chất dưỡng tóc miseen" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 500,000 ₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                        <ol class="list-unstyled mb-0" data-row="48" data-product="48">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#" title="chì kẻ mắt Kohl">
-                                        <img src="./assets/img/food/food_01.png" title="chì kẻ mắt Kohl" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 70,000 ₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                        <ol class="list-unstyled mb-0" data-row="49" data-product="49">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#n" title="Tinh chất dưỡng tóc miseen">
-                                        <img src="./assets/img/food/food_01.png" title="Tinh chất dưỡng tóc miseen" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 500,000 ₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-                 
-                 
-                        <ol class="list-unstyled mb-0" data-row="48" data-product="48">
-                            <li class="d-flex">
-                                <div class="thumb-img-cartmini">
-                                    <a href="#" title="chì kẻ mắt Kohl">
-                                        <img src="./assets/img/food/food_01.png" title="chì kẻ mắt Kohl" class="">
-                                    </a>
-                                </div>
-                                <div class="product-detail">
-                                    <h3 class="product-name-mini">
-                                        <a href="#">Bò hầm rau củ </a>
-                                    </h3>
-                                    <div class="product-info">
-                                        <div class="product-quanity">Số lượng : 1</div>
-                                        <div class="product-price">
-                                            <span class="price-sale">Giá : 70,000 ₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="produc-remove">
-                                    <a class="close delete-cart-item" title="Xóa">
-                                        <i class="fa fa-times"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        </ol>
-
-
+                                </li>
+                            </ol>
+                        </ng-container>
                     </div>
                 </div>
                 
@@ -429,13 +137,13 @@
                     <span class="total-title float-left">Tổng tiền:</span>
                     
 
-                    <span class="total-price float-right">570,000 ₫</span>
+                    <span class="total-price float-right">{{sumMoney}} ₫</span>
                 </div>
                 <div class="action-checkout">
-                    <a href="/gio-hang" title="Giỏ hàng của bạn" class="btn-cosmetic button-viewcart">
+                    <a *ngIf="selectedCustomer !== '0'" (click)="PrintBill()" title="Giỏ hàng của bạn" class="btn-cosmetic button-viewcart" style="width: 100%;">
                         <span>In hóa đơn</span>
                     </a>
-                    <a href="/thanh-toan" title="Thanh toán" class="btn-cosmetic button-checkout">
+                    <a *ngIf="selectedCustomer === '0'" (click)="SavePayment()" title="Thanh toán" class="btn-cosmetic button-checkout" style="width: 100%;">
                         <span>Thanh toán</span>
                     </a>
                 </div>
@@ -445,3 +153,4 @@
 
     </div>
 </div>
+<app-print-layout [getOrder]="sendData"></app-print-layout>
