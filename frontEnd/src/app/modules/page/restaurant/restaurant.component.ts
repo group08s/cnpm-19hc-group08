@@ -36,14 +36,26 @@ export class RestaurantComponent implements OnInit {
     {
       _idRoom: 123213213213213,
       Room: 123,
-      NameCustomer: 'Hieu Dep Trai',
+      NameCustomer: 'Hồ Quý Phi',
       PhoneCustomer: '0398214234234'
     },
     {
-        _idRoom: 123213213213213,
-        Room: 789,
-        NameCustomer: 'Ho Trung Hieu',
+        _idRoom: 566598966566633,
+        Room: 546,
+        NameCustomer: 'Lê Thị Minh Tâm',
         PhoneCustomer: '0123456789'
+    },
+    {
+      _idRoom: 78556455455856,
+      Room: 788,
+      NameCustomer: 'Phạm Văn Long',
+      PhoneCustomer: '0123456789'
+    },
+    {
+      _idRoom: 4455555555,
+      Room: 102,
+      NameCustomer: 'Đỗ Trung Kiên',
+      PhoneCustomer: '0123456789'
     },
   ];
 
