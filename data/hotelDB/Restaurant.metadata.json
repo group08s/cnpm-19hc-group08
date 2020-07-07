@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"hotelDB.Restaurant"}],"uuid":"2c8c8cac6d1b4872aa3618a4302b57bb"}

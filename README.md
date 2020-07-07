@@ -45,7 +45,16 @@
 - [FeatureName]/[nội dung chỉnh sửa]
 - example: $git commit -m"[Create Main Page]/[Fix bug return api]"
 
+# Hướng dẫn thiết lập database
+- b1: download và cài đặt mongodb: https://docs.mongodb.com/manual/installation/
+- b2: import database 
+   + database nằm trong thư mục: data/hotelDB
+   + tại nơi thư mục bin của mongo mở cmd "C:\Program Files\MongoDB\Server\4.2\bin"
+   + chạy lệnh: mongorestore -d hotelDB "E:\BaoCao\src\cnpm-19hc-group08\data\hotelDB"
+   (link tới thư mục chứa database: .../../data/hotelDB)
+
 # Hướng dẫn chạy chương trình:
+- b0: mở cmd chạy lệnh: mongo
 - b1: clone về: $git clone https://github.com/group08s/cnpm-19hc-group08.git
 - b2: cd CNPM_19CH_GROUP8
 - b3: npm install
