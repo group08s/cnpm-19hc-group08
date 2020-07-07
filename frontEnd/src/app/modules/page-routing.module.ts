@@ -3,18 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import {
     HomeComponent,
     ErrorComponent,
-    ManagerComponent,
     RestaurantComponent
 } from './page';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'error', component: ErrorComponent },
-    { path: 'manager', component: ManagerComponent },
-    { path: 'restaurant', component: RestaurantComponent},
+    { path: 'restaurant', component: RestaurantComponent },
+
+    {
+        path: 'manager',
+        loadChildren: './page/manager/manager.module#ManagerModule'
+    },
     {
         path: 'receptionist',
-        loadChildren: './page/receptionist/receptionist.module#ReceptionistModule'// './modules/zalo-app/zalo-app.module#ZaloAppModule'
+        loadChildren: './page/receptionist/receptionist.module#ReceptionistModule'
     },
     {
         path: '**',
@@ -27,4 +30,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class PageRoutingModule {}
+export class PageRoutingModule { }

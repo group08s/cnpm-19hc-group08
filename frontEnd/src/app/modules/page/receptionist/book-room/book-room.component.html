@@ -1,4 +1,4 @@
-      <form [formGroup]="customer" (ngSubmit)="onSubmit(customer.value)">
+      <form [formGroup]="customer" (ngSubmit)="onSubmit(customer)">
         <div class="row">
           <div class="col-md-6">
             <h3 class="ml-5 mt-4">Thông Tin Người Đại Diện </h3>
@@ -34,17 +34,17 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="inputCity">Thời gian đến</label>
-                <input type="datetime-local" step="1" [attr.value]="string_arrivalTime" class="form-control" >
+                <input type="datetime-local" step="1" [attr.value]="string_arrivalTime" class="form-control">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputZip">Thời gian đi</label>
-                <input type="datetime-local" step="1" [attr.min]="string_arrivalTime"  formControlName="leaveTime" class="form-control" >
+                <input type="datetime-local" step="1" [attr.min]="string_arrivalTime" formControlName="leaveTime"
+                  class="form-control">
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <h3 class="ml-5 mt-4 mb-4">Thông Tin Người Đi Cùng </h3>
-
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="">Họ Tên</label>
@@ -64,7 +64,6 @@
               <a (click)="addtable()" class="btn btn-success form-control text-white"> <i class="fa fa-plus"></i> Thêm
               </a>
             </div>
-
             <div class="table-height">
               <table class="table table-fixed">
                 <thead>
@@ -73,7 +72,6 @@
                     <th scope="col">SDT</th>
                     <th scope="col">Ngày Sinh</th>
                     <th scope="col">Xóa</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -89,20 +87,12 @@
                       </td>
                     </tr>
                   </ng-container>
-
-
                 </tbody>
               </table>
-
             </div>
-
           </div>
         </div>
-
-
-
         <div class="mt-5 text-center">
-          <button class="w-100 btn btn-primary ">Xác Nhận Đặt Phòng</button>
-
+          <button (click)="refresh()" class="w-100 btn btn-primary ">Xác Nhận Đặt Phòng</button>
         </div>
       </form>

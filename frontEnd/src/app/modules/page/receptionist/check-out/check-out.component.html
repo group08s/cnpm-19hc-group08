@@ -1,3 +1,105 @@
-<p>
-  check-out works!
-</p>
+<div class="form-group col-md-2">
+  <label>Phòng số</label>
+  <select class="form-control" (change)="selectChange($event)">
+    <option *ngFor="let room of listAllRoom; let i = index" [value]="room.RoomName" [selected]="i==0">
+      {{room.RoomName}}
+    </option>
+  </select>
+</div>
+
+<div  tabindex="-1" role="dialog" aria-hidden="true">
+  <div role="document">
+    <div>
+      <div class="modal-body">
+        <form class="">
+          <div class="form-row text-left">
+            <div class="form-group col-md-4">
+              <label for="">Họ Tên</label>
+              <input type="name" class="form-control" [attr.id-cus]="id" [attr.value]="name" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="">Số điện thoại</label>
+              <input type="text" class="form-control" id="inputsdt" [attr.value]="phone" disabled>
+            </div>
+
+            <div class="form-group col-md-4">
+              <label for="">CMND</label>
+              <input type="text" class="form-control" id="inputcmnd" [attr.value]="identtityCard" disabled>
+            </div>
+          </div>
+          <div class="form-group text-left">
+            <label for="inputAddress">Địa chỉ</label>
+            <input type="text" class="form-control" id="inputAddress" [attr.value]="address" disabled>
+          </div>
+
+          <div class="form-row text-left">
+            <div class="form-group col-md-4">
+              <label for="inputCity">Thời gian đến</label>
+              <input type="datetime-local" class="form-control" [attr.value]="string_arrivalTime" disabled>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputZip">Thời gian đi</label>
+              <input type="datetime-local" class="form-control" [attr.min]="string_arrivalTime"
+                [attr.value]="string_leaveTime" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Thông tin người đi cùng</h5>
+
+              <div class="table-height">
+                <table class="table table-fixed">
+                  <thead>
+                    <tr>
+                      <th scope="col">Họ Tên</th>
+                      <th scope="col">SDT</th>
+                      <th scope="col">Ngày Sinh</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let value of iD_relationship">
+                      <tr>
+                        <td>{{value.Name}}</td>
+                        <td>{{value.Phone}}</td>
+                        <td>{{value.DateOfBirth}}</td>
+
+                      </tr>
+                    </ng-container>
+
+
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h5>Thông tin dịch vụ</h5>
+              <div class="table-height">
+                <table class="table table-fixed">
+                  <thead>
+                    <tr>
+                      <th scope="col">Tên Dịch Vụ</th>
+                      <th scope="col">Giá</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let value of iD_service">
+                      <tr>
+                        <td>{{value.Name}}</td>
+                        <td>{{value.Price}}</td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-5 text-center">
+  <button (click)="refresh()" class="w-100 btn btn-success ">Xác Nhận Thanh Toán</button>
+</div>

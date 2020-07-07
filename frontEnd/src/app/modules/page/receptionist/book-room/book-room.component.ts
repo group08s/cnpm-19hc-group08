@@ -29,17 +29,6 @@ export class BookRoomComponent implements OnInit {
     Relationship: [],
   };
 
-  Relationship = {
-    'Name': 'Nguyễn Con',
-    'DateOfBirth': '1583229613',
-    'Phone': ' ',
-    'Address': ' ',
-    'IdentityCard': ' ',
-    'Email': ' '
-  };
-
-
-
   customer: FormGroup;
   formGroup: FormGroup;
   constructor(
@@ -69,8 +58,9 @@ export class BookRoomComponent implements OnInit {
       }
     });
   }
-  onSubmit(data) {
-    // console.log(data);
+  onSubmit(dataForm) {
+    const data = dataForm.value;
+    //  console.log(data);
     this.scriptPost.Name = data.name;
     this.scriptPost.IdentityCard = data.cmnd;
     this.scriptPost.Phone = data.phone;
@@ -85,9 +75,27 @@ export class BookRoomComponent implements OnInit {
         console.log(res);
       }
     });
-    console.log(this.scriptPost);
+    //console.log(this.scriptPost);
+    //this.cleanAll();
+    // console.log(this.scriptPost);
   }
+  refresh(): void {
+    alert('Đặt Phòng Thành Công');
+    window.location.reload();
+  }
+  cleanAll() {
+    this.scriptPost.Name = '';
+    this.scriptPost.IdentityCard = '';
+    this.scriptPost.Phone = '';
+    this.scriptPost.Address = '';
+    this.scriptPost.Relationship = [];
+    this.scriptPost.RoomName = '';
+    this.scriptPost.ArrivalTime = 0;
+    this.scriptPost.LeaveTime = 0;
+    this.list_customerChild = [];
 
+
+  }
   addtable() {
     if (this.nameChild != null && this.phoneChild != null && this.dobirth != null) {
       this.list_customerChild.push(

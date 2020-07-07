@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReceptionistPageService } from '@app/modules/services';
 import * as moment from 'moment';
-import { element } from '@angular/core/src/render3';
+
 @Component({
   selector: 'app-room-diagram',
   templateUrl: './room-diagram.component.html',
@@ -25,9 +25,9 @@ export class RoomDiagramComponent implements OnInit {
   phongdangsua = 0;
   phongconguoidat = 0;
 
-
   constructor(
     public receptionistPageService: ReceptionistPageService
+
   ) { }
 
   ngOnInit() {
@@ -44,7 +44,6 @@ export class RoomDiagramComponent implements OnInit {
       }
     });
   }
-
   getTypeRoom(array: any, type: any) {
     const arrayType = array.filter(e => e.Status === type);
       return arrayType.length;
