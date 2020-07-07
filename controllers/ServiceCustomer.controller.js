@@ -4,20 +4,26 @@ var room = require('../models/Room');
 // thêm các món ăn ở nhà hàng vào cho khách hàng
 module.exports.addRestaurant = function (req, res) {
     // nhap vao phong
-    servicecustomer.findOne({ "BookRoom.IdRoom": 'PH101', Status: 1 }, function (err, data) {
+    const data = {
+        "RoomName" : "PH101",
+        "idresataurant" : "5efd6b9d35cfef10ad31c372",
+        "amount" : 2
+    }
+
+    servicecustomer.findOne({ "BookRoom.IdRoom": data.RoomName, Status: 1 }, function (err, data) {
         if (err) {
             return res.json({ resutl: 0 });
         } else {
-            const newRestaurant = { restaurant: "5efd6b9d35cfef10ad31c372", amount: 1 };
+            const newRestaurant = { restaurant: data.idresataurant, amount: data.amount };
             servicecustomer.findOneAndUpdate({ _id: data._id },
                 {
                     $push: { IDRestaurant: newRestaurant }
                 },
                 function (err) {
                     if (err) {
-                        console.log(err);
+                        return res.json({resutl : 1});
                     } else {
-                        res.json({ resutl: 1 });
+                        return res.json({ resutl: 1 });
                     }
                 }
             );
@@ -62,6 +68,18 @@ module.exports.findProfileCustomer = function(req,res){
     })
 }
 
+module.exports.findCusRestaurant = function(req,res){
+    const txtRoom = "PH101";
+    servicecustomer.findOne({'BookRoom.IdRoom' : txtRoom, Status : 1},function(err,data){
+        if(err || data == null){
+            return res.json({resutl : 0});
+        }
+        else{
+            return res.json(data);
+        }
+    })
+}
+
 module.exports.findListRoom  = function(req,res){
     servicecustomer.find({Status : 1}).populate('IDCustomer').select('BookRoom.IdRoom IDCustomer').exec(function(err,data){
         if(data == null || err){
@@ -72,8 +90,9 @@ module.exports.findListRoom  = function(req,res){
     })
 }
 
+// tìm kiếm thông tin khách hàng ở phòng
 module.exports.findRoomCustomer = function(req,res){
-    const txt_room = req.body._id;
+    const txt_room = "PH101"; // ten phong
     servicecustomer.findOne({'BookRoom.IdRoom' : txt_room , Status : 1}).populate('IDRestaurant.restaurant').populate('IDService').populate('IDCustomer').exec(function(err,data){
         if(data == null){
             return res.json({resutl : 0});
@@ -88,19 +107,48 @@ module.exports.findRoomCustomer = function(req,res){
                 else{
                     
                     const Employee = JSON.stringify(data);
-                    
-                    console.log(Employee);
-                    // expected output: "John"
-                    
                     const a = JSON.parse(Employee);
                     delete a['IDCustomer'];
                     a.IDCustomer = dt;
-                    console.log(a);
                     // expected output: undefined
                     
                     return res.json(a);
                 }
             })
         }
-    })
+    });
+}
+
+// tìm kiếm khi thanh toán
+module.exports.findRoomCustomer_payment = function(req,res){
+    const txt_room = "PH101"; // ten phong
+    servicecustomer.findOne({'BookRoom.IdRoom' : txt_room , Status : 1}).populate('IDRestaurant.restaurant').populate('IDService').populate('IDCustomer').exec(function(err,data){
+        if(data == null){
+            return res.json({resutl : 0});
+        }
+        else{
+            const kq = data;
+            //console.log(data.IDCustomer._id);
+            customer.findOne(data.IDCustomer._id).populate('Id_relationship').exec(function(err,dt){
+                if(err){
+                    return res.json({resutl : 0});
+                }
+                else{
+                    //console.log();
+                    room.find({RoomName : data.BookRoom[0].IdRoom},function(err,kq){
+                        const Employee = JSON.stringify(data);
+                        const a = JSON.parse(Employee);
+                        delete a['IDCustomer'];
+                        a.IDCustomer = dt;
+                        a.Room = kq;
+                        return res.json(a);
+                    })
+                    
+                    // expected output: undefined
+                    
+                    
+                }
+            })
+        }
+    });
 }

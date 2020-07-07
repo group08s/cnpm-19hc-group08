@@ -12,4 +12,6 @@ route.post('/findid',controller.findProfileCustomer);
 route.post('/findroom',controller.findRoomCustomer);
 
 route.post('/findlistroom',controller.findListRoom);
+
+route.post('/findroompayment',controller.findRoomCustomer_payment);
 module.exports = route;

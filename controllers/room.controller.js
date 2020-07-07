@@ -1,12 +1,19 @@
 var room = require('../models/Room');
 
 module.exports.AddRoom = function(req,res){
+    const data = {
+        "RoomName" : "PH306",
+        "People" : 6,
+        "Price" : 3000000,
+        "Status" : 1,
+        "Floor" : 3
+    };
     var newroom = new room({
-        RoomName : req.body.txt_name,
-        People : req.body.num_people,
-        Price : req.body.num_price,
-        Status : req.body.num_status,
-        Floor : req.body.num_floor
+        RoomName : data.RoomName,
+        People : data.People,
+        Price : data.Price,
+        Status : data.Status,
+        Floor : data.Floor
     });
 
     newroom.save(function(err){
@@ -20,11 +27,11 @@ module.exports.AddRoom = function(req,res){
 
 module.exports.ListRoom  = function(req,res){
     room.find(function(err,data){
-        if(err){
-            res.json({result : 0});
+        if(err || data == null){
+            return res.json({result : 0});
         }
         else{
-            res.json(data);
+            return res.json(data);
         }
     });
 }
