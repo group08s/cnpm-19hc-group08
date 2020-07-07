@@ -11,8 +11,8 @@ module.exports.addpaymentrestaurant = function(req,res){
         "Phone" : "092328932",
         "Restaurant" : [
             {
-                "restaurant" : "5efd677135cfef10ad31c366",
-                "amount" : 3 // 3 * 250.00
+                "restaurant" : "5efd677135cfef10ad31c366", // id món ăn
+                "amount" : 3 // 3 * 250.00 số lượng
             },
             {
                 "restaurant" : "5efd67c235cfef10ad31c367",
@@ -60,10 +60,10 @@ module.exports.addpaymentrestaurant = function(req,res){
                                 },
                                 function(err){
                                     if(err){
-                                        res.json({result : 0, "error" : err});
+                                        return res.json({result : 0, "error" : err});
                                     }
                                     else{
-                                        res.json({result : 1});
+                                        return res.json({result : 1});
                                     }
                                 });
                         }
